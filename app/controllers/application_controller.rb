@@ -10,4 +10,22 @@ class ApplicationController < Sinatra::Base
   get '/' do
     return erb :index
   end
+  
+  post '/results' do
+    points_array = params.values
+    total = 0
+    points_array.each do |point|
+      total += point.to_i
+    end 
+    
+    puts total
+    result = calculate_result(total)
+    if result == "OMG - We are BEST friends :)"
+      return erb :bestfriends
+    elsif result == "okay"
+      return erb :okayfriends
+    else 
+      return erb :notfriends
+    end
+  end
 end
