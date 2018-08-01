@@ -20,12 +20,11 @@ class ApplicationController < Sinatra::Base
     
     puts total
     result = calculate_result(total)
-    if result == "OMG - We are BEST friends :)"
-      return erb :bestfriends
-    elsif result == "okay"
-      return erb :okayfriends
+    if result == "Cardio""
+      return erb :cardio
+    elsif result == "power"
+      return erb :power_lift
     else 
-      return erb :notfriends
-    end
+      return erb :HIIT
   end
 end
